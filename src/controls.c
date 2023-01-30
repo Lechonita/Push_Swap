@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:27:24 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/27 11:49:48 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:35:44 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ int	checkint_min_max(char *argv)
 		i++;
 	if (ft_strlen(argv + i) > 10)
 		return (0);
-	if ((sign == 1) && ft_strlen(argv + i) >= 10 &&
-		ft_strncmp((argv + i), "2147483647", 11) > 0)
+	if ((sign == 1) && ft_strlen(argv + i) >= 10
+		&& ft_strncmp((argv + i), "2147483647", 11) > 0)
 		return (0);
-	if ((sign == -1) && ft_strlen(argv + i) >= 10 &&
-		ft_strncmp((argv + i), "2147483648", 11) > 0)
+	if ((sign == -1) && ft_strlen(argv + i) >= 10
+		&& ft_strncmp((argv + i), "2147483648", 11) > 0)
 		return (0);
 	return (1);
 }
