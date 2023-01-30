@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lechon <lechon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:21:39 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/29 16:18:57 by lechon           ###   ########.fr       */
+/*   Updated: 2023/01/30 16:51:46 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	lowest_pos(t_stack *stack)
 	}
 	return (pos);
 }
-
 
 /* This function finds the index of the stack 
 	that we want to rotate (smallest / highest) */

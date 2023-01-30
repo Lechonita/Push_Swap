@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lechon <lechon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:41:58 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/29 16:37:43 by lechon           ###   ########.fr       */
+/*   Updated: 2023/01/30 17:20:20 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_position(t_stack *stack_a)
+{
+	t_stack	*tmp;
+	t_stack	*first;
+
+	if (!stack_a)
+		return ;
+	tmp = stack_a;
+	first = stack_a;
+	while (stack_a)
+	{
+		tmp = first;
+		while (tmp)
+		{
+			if (stack_a->value > tmp->value)
+				stack_a->pos += 1;
+			tmp = tmp->next;
+		}
+		stack_a = stack_a->next;
+	}
+}
 
 int	sorted_args(t_stack *stack)
 {
@@ -61,4 +83,28 @@ void	sort_small(t_stack **stack_a, t_stack **stack_b)
 	sort_three(stack_a);
 	while ((*stack_b))
 		push_a(stack_b, stack_a);
+}
+
+void	sort_big(t_stack **stack_a, t_stack **stack_b, int const_chunk)
+{
+	int	size_a;
+
+	smart_push(stack_a, stack_b, const_chunk);
+	if (sorted_args(*stack_b))
+	{
+		while (*stack_b)
+		{
+			push_a(stack_b, stack_a);
+			rotate_a(stack_a);
+		}
+	}
+	while (*stack_b)
+	{
+		get_cost(stack_a);
+		get_cost(stack_b);
+		size_a = stack_size(*stack_a);
+		find_cheapest(stack_a, stack_b, size_a);
+	}
+	while ((*stack_a)->pos != lowest_pos(*stack_a))
+		smart_rotate_a(stack_a, lowest_pos(*stack_a));
 }

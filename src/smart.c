@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:56:11 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 15:44:07 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:50:40 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,20 @@
 
 void	smart_push(t_stack **a, t_stack **b, int const_chunk)
 {
-	// display_stack(*a, *b);
 	int	size;
 	int	nb;
 	int	i;
 
 	nb = stack_size(*a) / const_chunk;
-	// printf("nb = size_a / const_chunk\nnb = %d / %d\n", stack_size(*a), const_chunk);
 	i = nb / 2;
-	// printf("i ===== nb / 2\n%d ===== %d / 2\n", i, nb);
 	while (i >= 0)
 	{
 		size = stack_size(*a);
-		// printf("size = %d\n", size);
-		// printf("i = %d\n", i);
 		while (size)
 		{
-			// printf("while size >= 0 ---> %d\n", size);
-			// printf("nb = %d\ni = %d\n", nb, i);
-			// printf("pb if pos_a < (nb - i + 1) * chk\n");
-			// printf("pb if %d < (%d - %d + 1) * %d\n", (*a)->pos, nb, i, const_chunk);
-			// display_stack(*a, *b);
 			if (((*a)->pos < ((nb - i + 1) * const_chunk))
 				&& ((*a)->pos >= (nb - i) * const_chunk) && !(*a)->lis_flag)
-				{
-					push_b(a, b);
-					// display_stack(*a, *b);
-				}
+				push_b(a, b);
 			else if (((*a)->pos >= (i * const_chunk))
 				&& ((*a)->pos < ((i + 1) * const_chunk)) && !(*a)->lis_flag)
 				push_rotate_b(a, b);

@@ -6,7 +6,7 @@
 #    By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 17:12:32 by jrouillo          #+#    #+#              #
-#    Updated: 2023/01/30 15:51:35 by jrouillo         ###   ########.fr        #
+#    Updated: 2023/01/30 17:11:08 by jrouillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS = push_swap.c \
 		rev_rotate.c \
 		sort.c \
 		utils.c \
-		sort_insertion.c \
 		smart.c \
 		lis.c \
 		cost.c \

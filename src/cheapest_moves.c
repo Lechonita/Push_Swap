@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:24:52 by lechon            #+#    #+#             */
-/*   Updated: 2023/01/30 13:21:12 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:46:09 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ra_rra(t_stack **stack_a, int *cost_a)
 		}
 		else if ((*cost_a) > 0)
 		{
-			// printf("cost_a = %d\n", *cost_a);
 			(*cost_a)--;
 			rotate_a(stack_a);
 		}

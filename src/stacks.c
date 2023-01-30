@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:29:27 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 13:05:28 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:23:27 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,6 @@ t_stack	*stack_a_last(t_stack *stack_a)
 	while (stack_a && stack_a->next != NULL)
 		stack_a = stack_a->next;
 	return (stack_a);
-}
-
-void	sort_position(t_stack *stack_a)
-{
-	t_stack	*tmp;
-	t_stack	*first;
-
-	if (!stack_a)
-		return ;
-	tmp = stack_a;
-	first = stack_a;
-	while (stack_a)
-	{
-		tmp = first;
-		while (tmp)
-		{
-			if (stack_a->value > tmp->value)
-				stack_a->pos += 1;
-			tmp = tmp->next;
-		}
-		stack_a = stack_a->next;
-	}
 }
 
 /*********************************/

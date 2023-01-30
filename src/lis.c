@@ -6,12 +6,11 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:19:18 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/27 11:56:14 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:48:08 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 /* LONGEST INCREASING SUBSEQUENCE */
 
@@ -62,7 +61,6 @@ int	lis_length(t_stack *stack)
 	}
 	return (lis_length);
 }
-
 
 /* Function that flags the values that shouldn't be pushed
 	in stack_b.
