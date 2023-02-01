@@ -64,6 +64,7 @@ To obtain a sorted list of numbers with the least amount of operations, the foll
   1. Check if the stack is aready sorted, in which case, no operations are needed
   2. Find the LIS (Longest Increasing Subsequence) of stack A, which is the longest existing list of numbers that are already sorted and so, therefore, do not need to be pushed or sorted
     - See documentations : [LIS](https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/), [Construction of LIS](https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-using-dynamic-programming/?ref=gcse)
+    
     Flag the numbers that are in the LIS so that they are recognizable from the non-LIS numbers
   3. Push all numbers from stack A into stack B (except the LIS flagged numbers) in chunks. The lowest numbers will be at the bottom of stack B and as we go up the stack, the numbers get bigger
   4. Determine the cost to get each number on top of its stack
