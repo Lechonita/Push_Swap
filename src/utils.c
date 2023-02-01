@@ -6,11 +6,13 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:21:39 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 16:51:46 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:38:03 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Assigns/Reassigns the index of the given stack, starting from zero. */
 
 void	assign_index(t_stack *stack)
 {
@@ -27,19 +29,7 @@ void	assign_index(t_stack *stack)
 	}
 }
 
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !*stack)
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-}
+/* Finds the highest value of the given stack. */
 
 int	highest_pos(t_stack *stack)
 {
@@ -55,6 +45,8 @@ int	highest_pos(t_stack *stack)
 	return (pos);
 }
 
+/* Finds the lowest value of the given stack. */
+
 int	lowest_pos(t_stack *stack)
 {
 	int	pos;
@@ -69,8 +61,9 @@ int	lowest_pos(t_stack *stack)
 	return (pos);
 }
 
-/* This function finds the index of the stack 
-	that we want to rotate (smallest / highest) */
+/* This function finds the index of the stack that we want to
+	rotate. It will allow us to know how many times we need to 
+	rotate in order	to get the targeted node on top of the stack. */
 
 int	find_stack_index(t_stack *stack, int pos)
 {
@@ -82,4 +75,23 @@ int	find_stack_index(t_stack *stack, int pos)
 			return (stack->index);
 	}
 	return (0);
+}
+
+/* Determines the size of a given stack. */
+
+int	stack_size(t_stack *stack)
+{
+	int		i;
+	t_stack	*first;
+
+	i = 0;
+	if (!stack)
+		return (0);
+	first = stack;
+	while (first)
+	{
+		i++;
+		first = first->next;
+	}
+	return (i);
 }

@@ -6,11 +6,18 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:41:58 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 17:20:20 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:37:47 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* This function assigns each node's final targeted position in the stack.
+	If stack_a has the following numbers in the following order :
+	{9, 3, 6}, their respective positions will be :
+	stack_a->pos = 2 for number 9
+	stack_a->pos = 0 for number 3
+	stack_a->pos = 1 for number 6 */
 
 void	sort_position(t_stack *stack_a)
 {
@@ -34,6 +41,8 @@ void	sort_position(t_stack *stack_a)
 	}
 }
 
+/* Checks it the stack is already sorted. */
+
 int	sorted_args(t_stack *stack)
 {
 	while (stack->next)
@@ -44,6 +53,8 @@ int	sorted_args(t_stack *stack)
 	}
 	return (1);
 }
+
+/* Function that only sorts the stack if size = 3. */
 
 void	sort_three(t_stack **stack)
 {
@@ -59,6 +70,8 @@ void	sort_three(t_stack **stack)
 	if ((*stack)->pos > (*stack)->next->pos)
 		swap_a(stack);
 }
+
+/* Function that sorts the stack up to size = 5. */
 
 void	sort_small(t_stack **stack_a, t_stack **stack_b)
 {
@@ -84,6 +97,8 @@ void	sort_small(t_stack **stack_a, t_stack **stack_b)
 	while ((*stack_b))
 		push_a(stack_b, stack_a);
 }
+
+/* Function that sorts the stack from size = 6 and higher. */
 
 void	sort_big(t_stack **stack_a, t_stack **stack_b, int const_chunk)
 {

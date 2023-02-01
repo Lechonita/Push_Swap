@@ -6,11 +6,18 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 13:56:11 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 16:50:40 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:53:03 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* This function pushes all the values of stack_a (that have lis_flag = 0)
+	into stack_b, in sorted chunks. The lowest values will end up in the
+	bottom of stack_b, while the highest values will be on top.
+	The number of chunks will depend on the const_chunk variable :
+	- 5 chunks for 100 values
+	- 10 chunks for 500 values */
 
 void	smart_push(t_stack **a, t_stack **b, int const_chunk)
 {
@@ -44,6 +51,9 @@ void	push_rotate_b(t_stack **stack_a, t_stack **stack_b)
 	push_b(stack_a, stack_b);
 	rotate_b(stack_b);
 }
+
+/* This function will determine the more cost efficient way to
+	rotate a node to the top of the stack (rotate or rev rotate). */
 
 void	smart_rotate_a(t_stack **stack, int pos)
 {

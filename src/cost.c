@@ -6,11 +6,14 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:05:30 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 16:47:00 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:44:57 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Assigns the cost for each node. The cost represents the number of operations
+	it would take to bring each node to the top of the stack. */
 
 void	get_cost(t_stack **stack)
 {
@@ -28,6 +31,10 @@ void	get_cost(t_stack **stack)
 		tmp = tmp->next;
 	}
 }
+
+/* This function finds the cheapest cost it would take to push a stack_b
+	node into stack_a, in the right position of stack_a. It compares the costs
+	for each stack_b node of keeps the cheapest one. */
 
 void	find_cheapest(t_stack **stack_a, t_stack **stack_b, int size_a)
 {
@@ -56,6 +63,10 @@ void	find_cheapest(t_stack **stack_a, t_stack **stack_b, int size_a)
 	}
 	move_cheapest(stack_a, stack_b, cost_a, cost_b);
 }
+
+/* After finding the nodes to be moved with find_cheapest, this function
+	does the operations to push the targeted stack_b node in the right position
+	in stack_a. */
 
 void	move_cheapest(t_stack **a, t_stack **b, int cost_a, int cost_b)
 {

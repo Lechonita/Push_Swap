@@ -6,11 +6,13 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:24:52 by lechon            #+#    #+#             */
-/*   Updated: 2023/01/30 16:46:09 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:57:45 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* The following functions are called in function move_cheapest (in cost.c). */
 
 void	cheapest_rrr(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {

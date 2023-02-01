@@ -6,11 +6,14 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:27:24 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 17:35:44 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:52:19 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Compares 2 numbers with each others. Used in check_duplicates to see if 
+	there are any duplicates in the input values. */
 
 int	compare_nb(char *argv1, char *argv2)
 {
@@ -40,6 +43,8 @@ int	compare_nb(char *argv1, char *argv2)
 	return (argv1[i] - argv2[j]);
 }
 
+/* This function checks if there are any duplicates in the input values.*/
+
 int	check_duplicates(char **argv)
 {
 	int	i;
@@ -59,6 +64,8 @@ int	check_duplicates(char **argv)
 	}
 	return (0);
 }
+
+/* This function checks if the input value fits in an int. */
 
 int	checkint_min_max(char *argv)
 {
@@ -86,6 +93,9 @@ int	checkint_min_max(char *argv)
 	return (1);
 }
 
+/* This function checks if the input value is a signed digit
+	and nothing else. */
+
 int	ft_signed_digit(char *argv)
 {
 	int	i;
@@ -99,6 +109,12 @@ int	ft_signed_digit(char *argv)
 		return (0);
 	return (1);
 }
+
+/* This function checks the input values to see that they fit the requirements :
+	- digits only
+	- has to fit in an int
+	- no duplicates 
+	If they don't fit the requirements => "Error" */
 
 int	check_args(char **argv)
 {

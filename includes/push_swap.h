@@ -6,12 +6,14 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:12:41 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 17:22:31 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:36:57 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+/* LIBRARIES */
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -19,6 +21,8 @@
 # include <limits.h>
 # include <stdio.h>
 # include "libft.h"
+
+/* CONSTANTS */
 
 # define SWAP_AB "ss"
 # define ROT_AB "rr"
@@ -35,6 +39,8 @@
 # define CONST_CHUNK100 20
 # define CONST_CHUNK500 50
 
+/* STRUCTURE */
+
 typedef struct s_stack
 {
 	int				value;
@@ -48,15 +54,14 @@ typedef struct s_stack
 
 /* PUSH SWAP */
 void		push_swap(t_stack **stack_a, t_stack **stack_b, int const_chunk);
-int			stack_size(t_stack *stack);
 int			get_const_chunk(t_stack *stack_a);
 
 /* UTILS */
 void		assign_index(t_stack *stack);
-void		free_stack(t_stack **stack);
 int			highest_pos(t_stack *stack);
 int			lowest_pos(t_stack *stack);
 int			find_stack_index(t_stack *stack, int pos);
+int			stack_size(t_stack *stack);
 
 /* CONTROLS */
 int			check_args(char **argv);
@@ -70,9 +75,7 @@ t_stack		*fill_stack(int argc, char **argv);
 t_stack		*stack_a_new(int nb, int ind);
 void		stack_a_addback(t_stack **stack_a, t_stack *nb);
 t_stack		*stack_a_last(t_stack *stack_a);
-/*********** TO BE REMOVED ***********/
-void		display_stack(t_stack *stack_a, t_stack *stack_b);
-void		display_onestack(t_stack *stack_a);
+void		free_stack(t_stack **stack);
 
 /* SORT */
 void		sort_position(t_stack *stack_a);
@@ -133,5 +136,21 @@ void		reverse_rotate(t_stack **stack);
 void		rev_rotate_a(t_stack **stack);
 void		rev_rotate_b(t_stack **stack);
 void		rev_rotate_rrr(t_stack **stack_a, t_stack **stack_b);
+
+/************************************************************/
+/************************** BONUS ***************************/
+/************************************************************/
+
+/* CHECKER */
+void		gnl_and_result(t_stack *stack_a, t_stack *stack_b);
+void		do_op(char *line, t_stack **stack_a, t_stack **stack_b);
+void		do_both_op(char *line, t_stack **stack_a, t_stack **stack_b);
+
+/* GET NEXT LINE */
+char		*ft_free_strjoin(char *s1, char *s2);
+char		*get_line(char *str);
+char		*get_rest(char *str);
+char		*get_str(int fd, char *str);
+char		*get_next_line(int fd);
 
 #endif

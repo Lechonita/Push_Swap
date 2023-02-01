@@ -6,13 +6,13 @@
 #    By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 17:12:32 by jrouillo          #+#    #+#              #
-#    Updated: 2023/01/30 17:11:08 by jrouillo         ###   ########.fr        #
+#    Updated: 2023/02/01 18:35:33 by jrouillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM NAME
 NAME = push_swap
-
+NAME_BONUS = checker
 
 # SOURCES
 SRC_PATH = src/
@@ -33,10 +33,23 @@ SRCS = push_swap.c \
 SRC = $(addprefix $(SRC_PATH), $(SRCS))
 
 
+# SOURCES BONUS
+SRC_PATH_BONUS = src_bonus/
+SRCS_BONUS = checker_bonus.c \
+				get_next_line.c
+SRC_BONUS = $(addprefix $(SRC_PATH_BONUS), $(SRCS_BONUS))
+
+
 # OBJECTS
 OBJ_PATH = obj/
 OBJS = $(SRCS:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH), $(OBJS))
+
+
+# OBJECTS BONUS
+OBJ_PATH_BONUS = obj_bonus/
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+OBJ_BONUS = $(addprefix $(OBJ_PATH_BONUS), $(OBJS_BONUS))
 
 
 # FLAGS
@@ -51,6 +64,10 @@ INC =  -I ./includes/ \
 # LIBFT
 LIBFT_PATH = libft
 LIBFT = $(LIBFT_PATH)/libft.a
+
+
+# GET NEXT LINE
+GNL_PATH = get_next_line
 
 
 # FONT COLORS
@@ -72,6 +89,9 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
 
+$(OBJ_PATH_BONUS):
+	@mkdir $(OBJ_PATH_BONUS)
+
 $(LIBFT):
 	@echo "$(_GREY)Compiling${_END}"
 	@make -sC $(LIBFT_PATH)
@@ -83,7 +103,7 @@ $(LIBFT):
 	@echo "|_______ \___||______  /\___  /     |____|     \______  /\____/|__|_|  /   __/|__|____/\___  >____ |   __"
 	@echo "        \/           \/     \/                        \/             \/|__|                \/     \/   \/${_END}"
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(OBJ_BONUS)
 	@gcc $(FLAGS) $(OBJ) $(LIBFT) $(INC) -o $(NAME)
 	@echo "$(_GREEN)\n"
 	@echo "\______   \    |   \/   _____//   |   \   /   _____/  \    /  \/  _  \\______    \ \_   ___ \  ____   _____ ______ |__|  |   ____   __| _/ | |"
@@ -92,10 +112,21 @@ $(NAME): $(OBJ)
 	@echo " |____|   |______/ /_______  /\___|_  /  /_______  / \__/\  /\____|__  /____|      \______  /\____/|__|_|  /   __/|__|____/\___  >____ |   __"
 	@echo "                           \/       \/           \/       \/         \/                   \/             \/|__|                \/     \/   \/${_END}"
 
+$(NAME_BONUS): $(OBJ_BONUS)
+	@gcc $(FLAGS) $(OBJ_BONUS) $(LIBFT) -o $(NAME)
+	@echo "$(_GREEN)\n"
+	@echo "  ___  _   _  ____  ___  _  _  ____  ____     ___  _____  __  __  ____  ____  __    ____  ____  "
+	@echo " / __)( )_( )( ___)/ __)( )/ )( ___)(  _ \   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "
+	@echo "( (__  ) _ (  )__)( (__  )  (  )__)  )   /  ( (__  )(_)(  )    (  )___/ _)(_  )(__  )__)  )(_) )"
+	@echo " \___)(_) (_)(____)\___)(_)\_)(____)(_)\_)   \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/ ${_END}"
+
+
 clean:
 	@make -sC $(LIBFT_PATH) clean
 	@rm -rf $(OBJ_PATH)
-	@echo "${_BOLD}${_CYAN}It's so clean, call me Mr. Clean"
+	@rm -rf $(OBJ_PATH_BONUS)
+	@echo "${_BOLD}${_CYAN}It's so clean, call me Mr. Clean${_END}"
+	@echo "${_BOLD}${_CYAN}\n"
 	@echo "                                    ▄▄R▀▀▀▀▀▀▀Φ▄,"
 	@echo "                                 ,▄▀'           ╙█▄"
 	@echo "                                ╓█'               ▀▌"

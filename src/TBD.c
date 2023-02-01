@@ -62,3 +62,54 @@ int	lowest_pos_index(t_stack *stack)
 	}
 	return (ind);
 }
+
+/*********************************/
+/********* TO BE REMOVED *********/
+/*********************************/
+
+void	display_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+
+	tmp_a = stack_a;
+	tmp_b = stack_b;
+	while (tmp_a)
+	{
+		printf("~A~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
+			tmp_a->index, tmp_a->pos, tmp_a->lis_count, tmp_a->lis_flag,
+			tmp_a->cost, tmp_a->value);
+		tmp_a = tmp_a->next;
+	}
+	printf("\n");
+	if (!tmp_b)
+		return ;
+	printf("--------------------------\n");
+	while (tmp_b)
+	{
+		printf("~B~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
+			tmp_b->index, tmp_b->pos, tmp_b->lis_count, tmp_b->lis_flag,
+			tmp_b->cost, tmp_b->value);
+		tmp_b = tmp_b->next;
+	}
+	printf("\n");
+	printf("--------------------------\n");
+}
+
+void	display_onestack(t_stack *stack_a)
+{
+	t_stack	*tmp_a;
+
+	tmp_a = stack_a;
+	if (!tmp_a)
+		return ;
+	while (tmp_a)
+	{
+		printf("~X~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
+			tmp_a->index, tmp_a->pos, tmp_a->lis_count, tmp_a->lis_flag,
+			tmp_a->cost, tmp_a->value);
+		tmp_a = tmp_a->next;
+	}
+	printf("\n");
+	printf("--------------------------\n");
+}

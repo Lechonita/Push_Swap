@@ -6,11 +6,14 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:29:27 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 17:23:27 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:37:56 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Determines whether it is the creation of a new stack or an addition of
+	a new node to an existing stack. */
 
 t_stack	*fill_stack(int argc, char **argv)
 {
@@ -33,6 +36,8 @@ t_stack	*fill_stack(int argc, char **argv)
 	return (stack_a);
 }
 
+/* Creation of a new stack */
+
 t_stack	*stack_a_new(int nb, int ind)
 {
 	t_stack	*new;
@@ -50,6 +55,8 @@ t_stack	*stack_a_new(int nb, int ind)
 	return (new);
 }
 
+/* Addition of a new node to an existing stack. */
+
 void	stack_a_addback(t_stack **stack_a, t_stack *nb)
 {
 	t_stack	*last;
@@ -65,6 +72,8 @@ void	stack_a_addback(t_stack **stack_a, t_stack *nb)
 	last->next = nb;
 }
 
+/* Returns the last node of a stack. */
+
 t_stack	*stack_a_last(t_stack *stack_a)
 {
 	while (stack_a && stack_a->next != NULL)
@@ -72,53 +81,18 @@ t_stack	*stack_a_last(t_stack *stack_a)
 	return (stack_a);
 }
 
-/*********************************/
-/********* TO BE REMOVED *********/
-/*********************************/
+/* Frees the stack once done. */
 
-void	display_stack(t_stack *stack_a, t_stack *stack_b)
+void	free_stack(t_stack **stack)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
+	t_stack	*tmp;
 
-	tmp_a = stack_a;
-	tmp_b = stack_b;
-	while (tmp_a)
-	{
-		printf("~A~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
-			tmp_a->index, tmp_a->pos, tmp_a->lis_count, tmp_a->lis_flag,
-			tmp_a->cost, tmp_a->value);
-		tmp_a = tmp_a->next;
-	}
-	printf("\n");
-	if (!tmp_b)
+	if (!stack || !*stack)
 		return ;
-	printf("--------------------------\n");
-	while (tmp_b)
+	while (*stack)
 	{
-		printf("~B~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
-			tmp_b->index, tmp_b->pos, tmp_b->lis_count, tmp_b->lis_flag,
-			tmp_b->cost, tmp_b->value);
-		tmp_b = tmp_b->next;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	printf("\n");
-	printf("--------------------------\n");
-}
-
-void	display_onestack(t_stack *stack_a)
-{
-	t_stack	*tmp_a;
-
-	tmp_a = stack_a;
-	if (!tmp_a)
-		return ;
-	while (tmp_a)
-	{
-		printf("~X~  [ind%3d] [pos%3d] [lis_count%3d] [lis_flag%3d] [cost%3d] %3d\n",
-			tmp_a->index, tmp_a->pos, tmp_a->lis_count, tmp_a->lis_flag,
-			tmp_a->cost, tmp_a->value);
-		tmp_a = tmp_a->next;
-	}
-	printf("\n");
-	printf("--------------------------\n");
 }
