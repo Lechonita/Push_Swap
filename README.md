@@ -3,10 +3,16 @@
 School 42 Project that consists in sorting a given list of numbers in ascending order, in the least amount of operations.
 
 Here, "the least amount of operations" aims to fit the requirements to have the maximum score for the project.
+
 Under    3 operations for   3 numbers
+
 Under   12 operations for   5 numbers
+
 Under  700 operations for 100 numbers
+
 Under 5500 operations for 500 numbers
+
+
 Therefore, the algorithm can certainly be optimized further.
 
 
@@ -20,7 +26,7 @@ The possible operations are the following :
 | sb | Swap b | Swaps/echanges the first 2 nodes of stack B. Does nothing if there is only one node or no node |
 | ss | Swap both | Does sa and sb at the same time |
 | pa | Push a | Pushes the first node of stack B on top of stack A. Does nothing if stack B is empty. |
-| pb | Push B | Pushes the first node of stack A on top of stack B. Does nothing if stack A is empty. |
+| pb | Push b | Pushes the first node of stack A on top of stack B. Does nothing if stack A is empty. |
 | ra | Rotate a | Shifts up all nodes of stack A by 1. The fist node becomes the last node |
 | rb | Rotate b | Shifts up all nodes of stack B by 1. The fist node becomes the last node |
 | rr | Rotate both | Does ra and rb at the same time |
@@ -49,9 +55,7 @@ To obtain a sorted list of numbers with the least amount of operations, the foll
 To obtain a sorted list of numbers with the least amount of operations, the following logic was used for **big** stacks :
   1. Check if the stack is aready sorted, in which case, no operations are needed
   2. Find the LIS (Longest Increasing Subsequence) of stack A, which is the longest existing list of numbers that      are already sorted and so, therefore, do not need to be pushed or sorted
-    - See documentations : 
-      https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
-      https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-using-dynamic-programming/?ref=gcse
+    - See documentations : [LIS](https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/)  [Construction of LIS](https://www.geeksforgeeks.org/construction-of-longest-increasing-subsequence-using-dynamic-programming/?ref=gcse)
     
     Flag the numbers that are in the LIS so that they are recognizable from the non-LIs numbers
   3. Push all numbers from stack A into stack B (except the LIS flagged numbers) in chunks. The lowest numbers          will be at the bottom of stack B and as we go up the stack, the numbers get bigger
