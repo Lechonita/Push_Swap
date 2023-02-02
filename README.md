@@ -50,7 +50,7 @@ To obtain a sorted list of numbers with the least amount of operations, the foll
   1. Check if the stack is aready sorted. In which case, no operations are needed
   2. Push the smallest numbers into stack B, keeping only 3 numbers in stack A
   3. Use **tiny sort** to sort stack A
-  4. Push the numbers from stack B into stack A. As they are the smallest, they are conveniently already be on top of stack A.
+  4. Push the numbers from stack B into stack A. As they are the smallest, they are conveniently already on top of stack A.
 
 ## Big stacks (size > 5)
 To obtain a sorted list of numbers with the least amount of operations, the following logic was used for **big** stacks :
