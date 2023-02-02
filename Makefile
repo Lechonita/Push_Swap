@@ -140,7 +140,7 @@ $(NAME_CHECKER): $(OBJ_CHK2)
 # GENERAL RULES
 clean:
 	@make -sC $(LIBFT_PATH) clean
-	@rm -rf $(OBJ_PATH) $(OBJ_PATH)
+	@rm -rf $(OBJ_PATH)
 	@echo "${_BOLD}${_CYAN}It's so clean, call me Mr. Clean${_END}"
 	@echo "${_BOLD}${_CYAN}\n"
 	@echo "                                    ▄▄R▀▀▀▀▀▀▀Φ▄,"
