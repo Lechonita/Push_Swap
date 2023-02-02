@@ -4,13 +4,13 @@ School 42 Project that consists in sorting a given list of numbers in ascending 
 
 Here, "the least amount of operations" aims to fit the requirements to have the maximum score for the project.
 
-Under    3 operations for   3 numbers
+  - Under    3 operations for   3 numbers
 
-Under   12 operations for   5 numbers
+  - Under   12 operations for   5 numbers
 
-Under  700 operations for 100 numbers
+  - Under  700 operations for 100 numbers
 
-Under 5500 operations for 500 numbers
+  - Under 5500 operations for 500 numbers
 
 
 Therefore, the algorithm can certainly be optimized further.
