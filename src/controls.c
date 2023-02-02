@@ -6,13 +6,13 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:27:24 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/01 11:52:19 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:28:35 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Compares 2 numbers with each others. Used in check_duplicates to see if 
+/* Compares 2 numbers with each other. Used in check_duplicates to see if 
 	there are any duplicates in the input values. */
 
 int	compare_nb(char *argv1, char *argv2)

@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:19:18 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 16:48:08 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:32:16 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* LONGEST INCREASING SUBSEQUENCE */
 
 /* Function that finds the longest sorted list in stack_a
-	so we don't need to push them in stack_b */
+	so we don't need to push them in stack_b, nor sort them. */
 
 int	assign_lis_count(t_stack *stack)
 {

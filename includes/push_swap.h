@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:12:41 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/01 18:36:57 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:29:30 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define CONST_CHUNK100 20
 # define CONST_CHUNK500 50
 
+# define BUFFER_SIZE 1024
+
 /* STRUCTURE */
 
 typedef struct s_stack
@@ -64,22 +66,22 @@ int			find_stack_index(t_stack *stack, int pos);
 int			stack_size(t_stack *stack);
 
 /* CONTROLS */
-int			check_args(char **argv);
-int			ft_signed_digit(char *argv);
-int			checkint_min_max(char *argv);
-int			check_duplicates(char **argv);
 int			compare_nb(char *argv1, char *argv2);
+int			check_duplicates(char **argv);
+int			checkint_min_max(char *argv);
+int			ft_signed_digit(char *argv);
+int			check_args(char **argv);
 
 /* STACKS */
 t_stack		*fill_stack(int argc, char **argv);
 t_stack		*stack_a_new(int nb, int ind);
-void		stack_a_addback(t_stack **stack_a, t_stack *nb);
 t_stack		*stack_a_last(t_stack *stack_a);
+void		stack_a_addback(t_stack **stack_a, t_stack *nb);
 void		free_stack(t_stack **stack);
 
 /* SORT */
-void		sort_position(t_stack *stack_a);
 int			sorted_args(t_stack *stack);
+void		sort_position(t_stack *stack_a);
 void		sort_three(t_stack **stack);
 void		sort_small(t_stack **stack_a, t_stack **stack_b);
 void		sort_big(t_stack **stack_a, t_stack **stack_b, int const_chunk);

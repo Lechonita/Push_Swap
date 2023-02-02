@@ -6,14 +6,14 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:12:38 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/01 17:57:14 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:27:50 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* This function determines whether CONST_CHUNK100 (20) is used
-	or wheter CONST_CHUNK500 (50) is used. It depends on the stack size. 
+/* This function determines whether CONST_CHUNK100 (20)	or CONST_CHUNK500 (50)
+	is used. It depends on the stack size. 
 	It will allow to separate the stack in 5 or 10 chunks, which will help
 	optimize the number of operations. Used in smart_push (in smart.c). */
 
@@ -30,6 +30,9 @@ int	get_const_chunk(t_stack *stack_a)
 		const_chunk = CONST_CHUNK500;
 	return (const_chunk);
 }
+
+/* Function that redirects to the appropriate sorting algorithm, based on
+	stack size. */
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int const_chunk)
 {

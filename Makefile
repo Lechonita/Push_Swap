@@ -6,54 +6,72 @@
 #    By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 17:12:32 by jrouillo          #+#    #+#              #
-#    Updated: 2023/02/01 18:35:33 by jrouillo         ###   ########.fr        #
+#    Updated: 2023/02/02 14:25:37 by jrouillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROGRAM NAME
 NAME = push_swap
-NAME_BONUS = checker
+NAME_CHECKER = checker
 
-# SOURCES
+
+# PATH
 SRC_PATH = src/
-SRCS = push_swap.c \
+OBJ_PATH = obj/
+
+
+# SOURCES PUSH SWAP
+SRC_PS = push_swap.c \
 		controls.c \
-		stacks.c \
-		push.c \
-		swap.c \
-		rotate.c \
-		rev_rotate.c \
-		sort.c \
 		utils.c \
 		smart.c \
 		lis.c \
 		cost.c \
 		cheapest_moves.c \
-		cost_utils.c
-SRC = $(addprefix $(SRC_PATH), $(SRCS))
+		cost_utils.c \
+		swap.c \
+		rotate.c \
+		rev_rotate.c \
+		push.c \
+		stacks.c \
+		sort.c
 
 
-# SOURCES BONUS
-SRC_PATH_BONUS = src_bonus/
-SRCS_BONUS = checker_bonus.c \
-				get_next_line.c
-SRC_BONUS = $(addprefix $(SRC_PATH_BONUS), $(SRCS_BONUS))
+# SOURCES CHECKER
+SRC_CHK = checker_bonus.c \
+			get_next_line_bonus.c \
+			controls.c \
+			utils.c \
+			smart.c \
+			lis.c \
+			cost.c \
+			cheapest_moves.c \
+			cost_utils.c \
+			swap.c \
+			rotate.c \
+			rev_rotate.c \
+			push.c \
+			stacks.c \
+			sort.c
+
+
+# SOURCE FILES
+SRC_PS2 = $(addprefix $(SRC_PATH)pushswap/, $(SRC_PS))
+SRC_CHK2 = $(addprefix $(SRC_PATH)checker/, $(SRC_CHK))
 
 
 # OBJECTS
-OBJ_PATH = obj/
-OBJS = $(SRCS:.c=.o)
-OBJ = $(addprefix $(OBJ_PATH), $(OBJS))
+OBJ_PS = $(SRC_PS:.c=.o)
+OBJ_CHK = $(SRC_CHK:.c=.o)
 
 
-# OBJECTS BONUS
-OBJ_PATH_BONUS = obj_bonus/
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-OBJ_BONUS = $(addprefix $(OBJ_PATH_BONUS), $(OBJS_BONUS))
+# OBJECT FILES
+OBJ_PS2 = $(addprefix $(OBJ_PATH), $(OBJ_PS))
+OBJ_CHK2 = $(addprefix $(OBJ_PATH), $(OBJ_CHK))
 
 
 # FLAGS
-FLAGS = -Wall -Werror -Wextra -fsanitize=address,undefined -g2
+FLAGS = -Wall -Werror -Wextra
 
 
 # INCLUDE
@@ -66,10 +84,6 @@ LIBFT_PATH = libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 
-# GET NEXT LINE
-GNL_PATH = get_next_line
-
-
 # FONT COLORS
 _GREY=\033[30m
 _RED=\033[31m
@@ -79,7 +93,7 @@ _BLUE=\033[34m
 _CYAN=\033[36m
 
 
-# RULES
+# PUSH SWAP RULES
 all: $(OBJ_PATH) $(LIBFT) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -89,42 +103,44 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
 
-$(OBJ_PATH_BONUS):
-	@mkdir $(OBJ_PATH_BONUS)
-
 $(LIBFT):
 	@echo "$(_GREY)Compiling${_END}"
 	@make -sC $(LIBFT_PATH)
 	@echo "$(_GREEN)\n"
-	@echo ".____    .___________________________________ _________                       .__.__             .___ ._."
-	@echo "|    |   |   \______   \_   _____/\__    ___/ \_   ___ \  ____   _____ ______ |__|  |   ____   __| _/ | |"
-	@echo "|    |   |   ||    |  _/|    __)    |    |    /    \  \/ /  _ \ /     \\____ \ |  |  | _/ __ \ / __ |  | |"
-	@echo "|    |___|   ||    |   \|     \     |    |    \     \___(  <_> )  Y Y  \  |_> >  |  |_\  ___// /_/ |   \|"
-	@echo "|_______ \___||______  /\___  /     |____|     \______  /\____/|__|_|  /   __/|__|____/\___  >____ |   __"
-	@echo "        \/           \/     \/                        \/             \/|__|                \/     \/   \/${_END}"
+	@echo " __    ____  ____  ____  ____     ___  _____  __  __  ____  ____  __    ____  ____  "
+	@echo "(  )  (_  _)(  _ \( ___)(_  _)   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "
+	@echo " )(__  _)(_  ) _ < )__)   )(    ( (__  )(_)(  )    (  )___/ _)(_  )(__  )__)  )(_) )"
+	@echo "(____)(____)(____/(__)   (__)    \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/\n${_END}"
 
-$(NAME): $(OBJ) $(OBJ_BONUS)
-	@gcc $(FLAGS) $(OBJ) $(LIBFT) $(INC) -o $(NAME)
+$(NAME): $(OBJ_PS2)
+	@gcc $(FLAGS) $(OBJ_PS2) $(LIBFT) $(INC) -o $(NAME)
 	@echo "$(_GREEN)\n"
-	@echo "\______   \    |   \/   _____//   |   \   /   _____/  \    /  \/  _  \\______    \ \_   ___ \  ____   _____ ______ |__|  |   ____   __| _/ | |"
-	@echo " |     ___/    |   /\_____  \/    ~    \  \_____  \\    \/\/   /  /_\  \|     ___/ /    \  \/ /  _ \ /     \\____ \ |  |  | _/ __ \ / __ |  | |"
-	@echo " |    |   |    |  / /        \    Y    /  /        \\         /    |    \    |     \     \___(  <_> )  Y Y  \  |_> >  |  |_\  ___// /_/ |   \|"
-	@echo " |____|   |______/ /_______  /\___|_  /  /_______  / \__/\  /\____|__  /____|      \______  /\____/|__|_|  /   __/|__|____/\___  >____ |   __"
-	@echo "                           \/       \/           \/       \/         \/                   \/             \/|__|                \/     \/   \/${_END}"
+	@echo " ____  __  __  ___  _   _    ___  _    _    __    ____     ___  _____  __  __  ____  ____  __    ____  ____  "
+	@echo "(  _ \(  )(  )/ __)( )_( )  / __)( \/\/ )  /__\  (  _ \   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "
+	@echo " )___/ )(__)( \__ \ ) _ (   \__ \ )    (  /(__)\  )___/  ( (__  )(_)(  )    (  )___/ _)(_  )(__  )__)  )(_) )"
+	@echo "(__)  (______)(___/(_) (_)  (___/(__/\__)(__)(__)(__)     \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/ \n${_END}"
 
-$(NAME_BONUS): $(OBJ_BONUS)
-	@gcc $(FLAGS) $(OBJ_BONUS) $(LIBFT) -o $(NAME)
+
+# CHECKER RULES
+bonus: all $(OBJ_PATH) $(NAME_CHECKER)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@echo -n "$(_GREY).${END}"
+	@gcc $(FLAGS) -c $< -o $@ $(INC)
+
+$(NAME_CHECKER): $(OBJ_CHK2)
+	@gcc $(FLAGS) $(OBJ_CHK2) $(LIBFT) $(INC) -o $(NAME_CHECKER)
 	@echo "$(_GREEN)\n"
 	@echo "  ___  _   _  ____  ___  _  _  ____  ____     ___  _____  __  __  ____  ____  __    ____  ____  "
 	@echo " / __)( )_( )( ___)/ __)( )/ )( ___)(  _ \   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "
 	@echo "( (__  ) _ (  )__)( (__  )  (  )__)  )   /  ( (__  )(_)(  )    (  )___/ _)(_  )(__  )__)  )(_) )"
-	@echo " \___)(_) (_)(____)\___)(_)\_)(____)(_)\_)   \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/ ${_END}"
+	@echo " \___)(_) (_)(____)\___)(_)\_)(____)(_)\_)   \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/ \n${_END}"
 
 
+# GENERAL RULES
 clean:
 	@make -sC $(LIBFT_PATH) clean
-	@rm -rf $(OBJ_PATH)
-	@rm -rf $(OBJ_PATH_BONUS)
+	@rm -rf $(OBJ_PATH) $(OBJ_PATH)
 	@echo "${_BOLD}${_CYAN}It's so clean, call me Mr. Clean${_END}"
 	@echo "${_BOLD}${_CYAN}\n"
 	@echo "                                    ▄▄R▀▀▀▀▀▀▀Φ▄,"
@@ -170,7 +186,7 @@ clean:
 
 fclean: clean
 	@make -sC $(LIBFT_PATH) fclean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_CHECKER)
 
 re: fclean all
 

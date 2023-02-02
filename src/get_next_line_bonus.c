@@ -6,11 +6,11 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 17:49:42 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/01 18:33:10 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:10:00 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
 char	*ft_free_strjoin(char *s1, char *s2)
 {

@@ -6,11 +6,24 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:41:58 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/01 11:37:47 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:30:51 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Checks it the stack is already sorted. */
+
+int	sorted_args(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
 
 /* This function assigns each node's final targeted position in the stack.
 	If stack_a has the following numbers in the following order :
@@ -39,19 +52,6 @@ void	sort_position(t_stack *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
-}
-
-/* Checks it the stack is already sorted. */
-
-int	sorted_args(t_stack *stack)
-{
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
 }
 
 /* Function that only sorts the stack if size = 3. */
