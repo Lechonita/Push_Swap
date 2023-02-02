@@ -69,5 +69,9 @@ To obtain a sorted list of numbers with the least amount of operations, the foll
  
  # Status
  
- Not pushed yet
+Bonus included
+Grade : TBD
 
+
+Average number of operations for 100 numbers : 586
+Average number of operations for 500 numbers : 4642
