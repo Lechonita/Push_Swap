@@ -72,9 +72,6 @@ To obtain a sorted list of numbers with the least amount of operations, the foll
 Bonus included
 
 
-Grade : TBD
-
-
 
 Average number of operations for 100 numbers : 586
 
