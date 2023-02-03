@@ -81,18 +81,16 @@ Average number of operations for 500 numbers : 4642
  
  # Usage
  
-  Use following command to compile Push_Swap only :
-  ```>$ make```
-  Use following command to compile both Push_Swap and Checker :
-  ```>$ make bonus```
+  Use ```make``` to compile Push_Swap only OR use ```make bonus``` to compile both Push_Swap and Checker.
+  
   
   Followed by :
   ```>$ ./push_swap <insert random list numbers>
   For example
-  >$ ./push_swap 6 4 2 5 9 7 0```
+  >$ ./push_swap 6 4 2 5 9 7 0
   
   For checker, use :
-  ```>$ ./checker 6 4 2 5 9 7 0```
+  >$ ./checker 6 4 2 5 9 7 0
   and enter the operations maunally, followed by `Enter`. `Ctrl` + `D` to finish program.
   
   
