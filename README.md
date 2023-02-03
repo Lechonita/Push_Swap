@@ -76,3 +76,23 @@ Bonus included
 Average number of operations for 100 numbers : 586
 
 Average number of operations for 500 numbers : 4642
+
+ -----------------------------------------------------------------------------------------------------------------------
+ 
+ # Usage
+ 
+  Use following command to compile Push_Swap only :
+  ```>$ make```
+  Use following command to compile both Push_Swap and Checker :
+  ```>$ make bonus```
+  
+  Followed by :
+  ```>$ ./push_swap <insert random list numbers>
+  For example
+  >$ ./push_swap 6 4 2 5 9 7 0```
+  
+  For checker, use :
+  ```>$ ./checker 6 4 2 5 9 7 0```
+  and enter the operations maunally, followed by `Enter`. `Ctrl` + `D` to finish program.
+  
+  
