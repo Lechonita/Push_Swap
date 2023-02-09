@@ -90,6 +90,6 @@ Average number of operations for 500 numbers : 4642
   
   For checker, use :
   >$ ./checker 6 4 2 5 9 7 0
-  and enter the operations maunally, followed by `Enter`. `Ctrl` + `D` on empty line to finish program.
+  and enter the operations manually, followed by `Enter`. `Ctrl` + `D` on empty line to finish program.
   
   
