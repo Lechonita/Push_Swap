@@ -13,7 +13,6 @@ Here, "the least amount of operations" aims to fit the requirements to have the 
   - Under 5500 operations for 500 numbers
 
 
-Therefore, the algorithm can certainly be optimized further.
 
 
 # Operations
