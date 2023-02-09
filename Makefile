@@ -6,7 +6,7 @@
 #    By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 17:12:32 by jrouillo          #+#    #+#              #
-#    Updated: 2023/02/02 14:25:37 by jrouillo         ###   ########.fr        #
+#    Updated: 2023/02/09 15:19:51 by jrouillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ all: $(OBJ_PATH) $(LIBFT) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@echo -n "$(_GREY).${END}"
-	@gcc $(FLAGS) -c $< -o $@ $(INC)
+	@cc $(FLAGS) -c $< -o $@ $(INC)
 
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
@@ -113,7 +113,7 @@ $(LIBFT):
 	@echo "(____)(____)(____/(__)   (__)    \___)(_____)(_/\/\_)(__)  (____)(____)(____)(____/\n${_END}"
 
 $(NAME): $(OBJ_PS2)
-	@gcc $(FLAGS) $(OBJ_PS2) $(LIBFT) $(INC) -o $(NAME)
+	@cc $(FLAGS) $(OBJ_PS2) $(LIBFT) $(INC) -o $(NAME)
 	@echo "$(_GREEN)\n"
 	@echo " ____  __  __  ___  _   _    ___  _    _    __    ____     ___  _____  __  __  ____  ____  __    ____  ____  "
 	@echo "(  _ \(  )(  )/ __)( )_( )  / __)( \/\/ )  /__\  (  _ \   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "
@@ -126,10 +126,10 @@ bonus: all $(OBJ_PATH) $(NAME_CHECKER)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@echo -n "$(_GREY).${END}"
-	@gcc $(FLAGS) -c $< -o $@ $(INC)
+	@cc $(FLAGS) -c $< -o $@ $(INC)
 
 $(NAME_CHECKER): $(OBJ_CHK2)
-	@gcc $(FLAGS) $(OBJ_CHK2) $(LIBFT) $(INC) -o $(NAME_CHECKER)
+	@cc $(FLAGS) $(OBJ_CHK2) $(LIBFT) $(INC) -o $(NAME_CHECKER)
 	@echo "$(_GREEN)\n"
 	@echo "  ___  _   _  ____  ___  _  _  ____  ____     ___  _____  __  __  ____  ____  __    ____  ____  "
 	@echo " / __)( )_( )( ___)/ __)( )/ )( ___)(  _ \   / __)(  _  )(  \/  )(  _ \(_  _)(  )  ( ___)(  _ \ "

@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:41:58 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/02 14:30:51 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:42:31 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	sort_small(t_stack **stack_a, t_stack **stack_b)
 	{
 		smallest = lowest_pos(*stack_a);
 		if ((*stack_a)->pos != smallest)
-			rotate_a(stack_a);
+			smart_rotate_a(stack_a, smallest);
 		else if ((*stack_a)->pos == smallest)
 			push_b(stack_a, stack_b);
 		size = stack_size(*stack_a);
@@ -104,6 +104,7 @@ void	sort_big(t_stack **stack_a, t_stack **stack_b, int const_chunk)
 {
 	int	size_a;
 
+	flag_lis_values(*stack_a, assign_lis_count(*stack_a));
 	smart_push(stack_a, stack_b, const_chunk);
 	if (sorted_args(*stack_b))
 	{

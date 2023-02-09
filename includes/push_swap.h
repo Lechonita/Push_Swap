@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:12:41 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/02 14:29:30 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:42:27 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define CONST_CHUNK100 20
 # define CONST_CHUNK500 50
 
-# define BUFFER_SIZE 1024
+# define BUFFER_SIZE BUFSIZ
 
 /* STRUCTURE */
 
@@ -150,8 +150,8 @@ void		do_both_op(char *line, t_stack **stack_a, t_stack **stack_b);
 
 /* GET NEXT LINE */
 char		*ft_free_strjoin(char *s1, char *s2);
-char		*get_line(char *str);
-char		*get_rest(char *str);
+char		*get_line(char *str, char *tmp);
+char		*get_line_store(char *str);
 char		*get_str(int fd, char *str);
 char		*get_next_line(int fd);
 

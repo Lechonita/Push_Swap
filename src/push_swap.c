@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:12:38 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/02 14:27:50 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:38:01 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	const_chunk = get_const_chunk(stack_a);
 	sort_position(stack_a);
-	flag_lis_values(stack_a, assign_lis_count(stack_a));
 	push_swap(&stack_a, &stack_b, const_chunk);
 	free_stack(&stack_a);
 	free_stack(&stack_b);

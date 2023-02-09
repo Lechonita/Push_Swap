@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:56:57 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/02 13:42:58 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:14:45 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	do_both_op(char *line, t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 	{
-		write(1, "Error\n", 6);
 		free_stack(stack_a);
 		free_stack(stack_b);
+		free(line);
+		write(1, "Error\n", 6);
 		exit (EXIT_FAILURE);
 	}
 }
