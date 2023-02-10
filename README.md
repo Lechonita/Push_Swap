@@ -13,7 +13,6 @@ Here, "the least amount of operations" aims to fit the requirements to have the 
   - Under 5500 operations for 500 numbers
 
 
-Therefore, the algorithm can certainly be optimized further.
 
 
 # Operations
@@ -91,6 +90,6 @@ Average number of operations for 500 numbers : 4642
   
   For checker, use :
   >$ ./checker 6 4 2 5 9 7 0
-  and enter the operations maunally, followed by `Enter`. `Ctrl` + `D` on empty line to finish program.
+  and enter the operations manually, followed by `Enter`. `Ctrl` + `D` on empty line to finish program.
   
   
