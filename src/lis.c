@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:19:18 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/02/02 14:32:16 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:22:07 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	assign_lis_count(t_stack *stack)
 	t_stack	*prev;
 	t_stack	*curr;
 
-	if (stack->next)
-		curr = stack->next;
+	curr = stack->next;
 	stack->lis_count = 1;
 	while (curr)
 	{

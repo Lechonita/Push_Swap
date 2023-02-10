@@ -6,7 +6,7 @@
 /*   By: jrouillo <jrouillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:47:28 by jrouillo          #+#    #+#             */
-/*   Updated: 2023/01/30 16:49:54 by jrouillo         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:58:31 by jrouillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
 
-	if (!*src && !(*src)->next)
+	if (!*src)
 		return ;
 	tmp = (*src)->next;
 	(*src)->next = *dest;
