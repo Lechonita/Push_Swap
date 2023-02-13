@@ -73,7 +73,7 @@ char	*get_line_store(char *str)
 		*(str - i) = *str;
 		str++;
 	}
-	*str = 0;
+	*(str - i) = '\0';
 	return (line);
 }
 
